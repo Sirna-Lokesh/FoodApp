@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  background-color: #f4f4f4;
+  border: 1px solid #000;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3px 2px 2px 4px;
+  display: flex;
+}
+
+#logo {
+  width: 150px;
+  border-radius: 100%;
+}
+
+#navbar {
+  border: 1px solid #fff;
+}
+
+#navigation-list {
+  padding-left: none;
+  background-color: #fff;
+  border: 1px solid #000;
+  flex-direction: row;
+  list-style-type: none;
+  display: flex;
+}
+
+ul > li {
+  margin: 2px;
+  padding: 2px;
+}
+
+ul > li :hover {
+  background-color: #5b5555;
+}
+
+#login-btn {
+  width: 100px;
+  height: 40px;
+  background-color: #086908;
+  border-radius: 20px;
+  margin: 2px;
+}
+
+#search-comp {
+  border: 1px solid #000;
+  justify-content: center;
+  margin: 5px 0 0;
+  font-family: monospace;
+  display: flex;
+}
+
+#search-bar {
+  height: 35px;
+  width: 400px;
+  margin: 3px;
+}
+
+#search-btn {
+  height: 35px;
+  text-align: center;
+  margin: 5px 3px 3px 0;
+  font-size: larger;
+}
+
+#sort-btn {
+  height: 35px;
+  width: 100px;
+  text-align: center;
+  margin: 5px 3px 3px 0;
+  font-size: larger;
+}
+
+#body {
+  margin: 2px solid #d99836;
+  background-color: #f4f4f4;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+#card {
+  height: 350px;
+  width: 200px;
+  border: 1px solid #000;
+  margin: 5px 2px;
+}
+
+#card:hover {
+  border: 2px solid #000;
+  border-radius: 4px;
+}
+
+#food-image {
+  width: 190px;
+  height: 120px;
+  margin: 5px 6px;
+}
+
+#food-info {
+  margin: 5px 10px;
+}
+
+#rating-btn {
+  width: 50px;
+  border-radius: 40px;
+}
+
+#shimmer-card {
+  height: 350px;
+  width: 200px;
+  border: 1px solid #000;
+  margin: 5px 2px;
+}
+
+#shimmer-body {
+  margin: 2px solid #d99836;
+  background-color: #f4f4f4;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+/*# sourceMappingURL=index.3a01df49.css.map */

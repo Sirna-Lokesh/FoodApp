@@ -3,14 +3,9 @@ import ShimmerCard from "./ShimmerCard";
 const ShimmerBody = () => {
     return (
         <div id="shimmer-body">
-            <ShimmerCard></ShimmerCard>
-            <ShimmerCard></ShimmerCard>
-            <ShimmerCard></ShimmerCard>
-            <ShimmerCard></ShimmerCard>
-            <ShimmerCard></ShimmerCard>
-            <ShimmerCard></ShimmerCard>
-            <ShimmerCard></ShimmerCard>
-            <ShimmerCard></ShimmerCard>
+            {Array(15).fill(1).map((e,index)=>{
+                return <ShimmerCard key={index}></ShimmerCard>
+            })}
         </div>
     )
 }

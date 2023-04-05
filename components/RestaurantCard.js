@@ -1,5 +1,5 @@
 import React from "react"
-
+import { Link } from "react-router-dom";
 const CLOUD_URL="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,c_fill/"
 const RestaurantCard = (props) =>{
    
@@ -9,7 +9,7 @@ const RestaurantCard = (props) =>{
     const costForTwo=props?.resData?.data?.costForTwo;
     const minDeliveryTime=props?.resData?.data?.minDeliveryTime;
     const name=props?.resData?.data?.name;
-
+    const id=props?.resData?.data?.id;
 
     //style for rating
     const goodRating={
@@ -20,13 +20,12 @@ const RestaurantCard = (props) =>{
     }
     return (
         <div id="card">
-            <img id="food-image" src={`${CLOUD_URL}${cloudinaryImageId}`} alt="Food Item" />
+            <Link to={"restaurants/"+id}><img id="food-image" src={`${CLOUD_URL}${cloudinaryImageId}`} alt="Food Item" /></Link>
             <div id="food-info">
-                <h2>{name} </h2> <button id="rating-btn" style={parseInt(avgRating)>=4 ? goodRating :badRating}>{avgRating}</button>
+                <h2 id="restaurant-name">{name}  <button id="rating-btn" style={parseInt(avgRating)>=4 ? goodRating :badRating}>{avgRating}</button></h2>
                 <h5>{cuisines?.map((item)=>item+"-")}</h5>
                 <h3>Time : {minDeliveryTime} Mins</h3>
                 <h3>Price : {parseInt(costForTwo)/100} INR only/-</h3>
-               
             </div>
         </div>
     )

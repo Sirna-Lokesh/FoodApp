@@ -1,6 +1,10 @@
 import React from "react"
 import { createRoot } from "react-dom";
 import { createBrowserRouter , RouterProvider} from "react-router-dom";
+
+
+import Profile from "./Timer/Profile";
+import ParentClass from "./Timer/ParentClass";
 //custom components 
 import AppLayout from "./components/AppLayout"
 import About from "./components/About";
@@ -9,6 +13,7 @@ import Contact from "./components/Contact";
 import Body from "./components/Body";
 import PageNotFound from "./components/PageNotFound";
 import RestaurantMenu from "./components/RestaurantsMenu";
+
 const root=createRoot(document.getElementById("root"));
 
 
@@ -39,8 +44,17 @@ const appRouter = createBrowserRouter([
     {
         path:"/restaurants/:id",
         element: <RestaurantMenu/>
+    },
+    {
+        path:"/profile",
+        element:<Profile/>
+    },
+    {
+        path:"/parent",
+        element:<ParentClass/>
     }
     
 ]);
 
 root.render(<RouterProvider router={appRouter}></RouterProvider>);
+// root.render(<Timer/>);

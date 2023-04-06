@@ -13,7 +13,7 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.385044&lng=78.486671&page_type=DESKTOP_WEB_LISTING"
     );
     let json = await APIData.json();
-    console.log(json);
+    //console.log(json);
     setAllrestaurants(json.data.cards[2].data.data.cards);
     setFilteredRestaurants(json.data.cards[2].data.data.cards);
   }
@@ -68,7 +68,7 @@ const Body = () => {
   useEffect(() => {
     getDataFromAPI();
   }, []);
-  console.log("render");
+  //console.log("render");
   return (
     <>
       <div id="search-comp">

@@ -52,33 +52,38 @@ const RestaurantsMenu = (props) => {
     <>
       {restaurantMenu != null ? (
         <>
-          <div id="restaurant-menu">
-            
-            <div id="restaurant-image">
+          <div id="restaurant-menu" className="h-[280px] flex justify-evenly w-[800px] ml-16">
+            <div id="restaurant-image" className=" border border-black w-[220px] h-[220px] flex justify-center items-center mt-6">
               <img
                 id="restaurant-menu-image"
                 src={CLOUD_IMAGE_URL + cloudinaryImageId}
                 alt=" The Hotel Image "
+                className="w-[200px] h-[200px] m"
               />
             </div>
 
-            <div id="restaurant-info">
-              <h1>Restaurant Name : {name}</h1>{" "}
-              <h3>Aggregated Rating :<button
-                id="rating-btn"
-                style={parseInt(avgRating) >= 4 ? goodRating : badRating}
-              >
-                {avgRating}
-              </button></h3>
-              <h3>Cuisines : 
+            <div id="restaurant-info" className="mt-10">
+              <h1 className="font-bold text-xl">Restaurant Name : {name}</h1>{" "}
+              <h3>
+                Aggregated Rating  : 
+                <button
+                  className="w-[40px] text-base rounded-sm text-white ml-1"
+                  id="rating-btn"
+                  style={parseInt(avgRating) >= 4 ? goodRating : badRating}
+                >
+                  {avgRating}
+                </button>
+              </h3>
+              <h3>
+                Cuisines :
                 {cuisines ? cuisines.map((item) => " - " + item) : " menu "}
               </h3>
               <h3>Cost : {parseInt(costForTwo) / 100} For 2 </h3>
               <h3>Minimum Delivery Time :{minDeliveryTime} Mins </h3>
             </div>
-            
           </div>
-          <div id="menu">
+          <div className="w-[1000px] mx-auto bg-black h-[2px] mb-4"></div>
+          <div id="menu" className="flex flex-wrap justify-center">
             {AllMenuItems != null ? (
               AllMenuItems?.map((menuItem, index) => {
                 return (

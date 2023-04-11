@@ -38,7 +38,7 @@ const RestaurantsMenu = (props) => {
     const json = await data.json();
     setRestaurantMenu(json);
     console.log(json);
-    // console.log(json?.data?.cards[0]?.card?.card?.info);
+    //console.log(json?.data?.cards[0]?.card?.card?.info);
     const menuData =
       json?.data?.cards?.[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[1]
         ?.card?.card?.itemCards;

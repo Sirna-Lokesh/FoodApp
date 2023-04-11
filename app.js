@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Profile from "./Timer/Profile";
 import ParentClass from "./Timer/ParentClass";
+import Component1 from "./Timer/Parent";
 //custom components
 import AppLayout from "./components/AppLayout";
 import About from "./components/About";
@@ -32,11 +33,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: (
-          <Suspense>
-            <About></About>
-          </Suspense>
-        ),
+        element: <About></About>,
       },
       {
         path: "/contact",
@@ -67,5 +64,5 @@ const appRouter = createBrowserRouter([
   },
 ]);
 
-root.render(<RouterProvider router={appRouter}></RouterProvider>);
-// root.render(<Timer/>);
+//root.render(<RouterProvider router={appRouter}></RouterProvider>);
+ root.render(<Component1/>);

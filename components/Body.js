@@ -22,7 +22,7 @@ const Body = () => {
   return (
     <>
     {online==true ? <>
-        <div id="search-comp" className=" shadow-sm my-2 flex place-items-center h-10 ">
+        <div id="search-comp" className=" shadow-sm mt-2 mb-3 flex place-items-center h-10  ">
           <input
           className="focus:bg-blue-100 border border-black mx-4 w-[400px] shadow-lg h-10 rounded-sm"
             type="text"
@@ -37,13 +37,13 @@ const Body = () => {
           <button
             onClick={() => filterRests(searchText, allRestaurants,setFilteredRestaurants)}
             id="search-btn"
-            className="bg-emerald-400 border border-black shadow-sm mx-2 rounded-sm w-24 h-10 text-xl"
+            className="bg-emerald-400 border border-black shadow-sm mx-2 rounded-lg w-24 h-10 text-xl"
           >
             🔍Search{" "}
           </button>
           <button
             id="sort-btn"
-            className="bg-emerald-300  border border-black shadow-sm mx-2 rounded-sm w-24 h-10 text-xl"
+            className="bg-emerald-300  border border-black shadow-sm mx-2 rounded-lg w-24 h-10 text-xl"
             onClick={() => {
               customSort(filteredRestaurants,setAllrestaurants,setFilteredRestaurants);
             }}

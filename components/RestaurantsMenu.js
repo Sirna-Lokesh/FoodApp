@@ -39,9 +39,13 @@ const RestaurantsMenu = (props) => {
     setRestaurantMenu(json);
     console.log(json);
     //console.log(json?.data?.cards[0]?.card?.card?.info);
-    const menuData =
+    let menuData =
       json?.data?.cards?.[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[1]
         ?.card?.card?.itemCards;
+    if(menuData==undefined){
+      menuData=json?.data?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[1]
+      ?.card?.card?.itemCards;
+    }
     setAllMenuItems(menuData);
     console.log(menuData);
   }

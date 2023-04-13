@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { GoChevronDown , GoChevronUp} from "react-icons/go"
 const Section = ({ title, description , isVisible ,  setConfig}) => {
 
   return (
@@ -11,14 +12,14 @@ const Section = ({ title, description , isVisible ,  setConfig}) => {
           className="border border-black w-20 font-bold text-xl"
           onClick={() => setConfig()}
         >
-          Show
+          <GoChevronDown size={20}></GoChevronDown>
         </button>
       ) : (
         <button
           className="border border-black w-20 font-bold text-xl"
           onClick={() => setConfig()}
         >
-          Hide
+          <GoChevronUp size={20}></GoChevronUp>
         </button>
       )}
     </div>

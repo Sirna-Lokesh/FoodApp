@@ -9,10 +9,15 @@ import Component1 from "./Timer/Parent";
 import AppLayout from "./components/AppLayout";
 import About from "./components/About";
 import Rate from "./components/Rate";
+import Cart from "./components/Cart";
 //import Contact from "./components/Contact";
 import Body from "./components/Body";
 import PageNotFound from "./components/PageNotFound";
 import RestaurantMenu from "./components/RestaurantsMenu";
+
+//bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 //lazy loading(DemandLoading) About Component
 import { lazy, Suspense } from "react";
@@ -51,6 +56,10 @@ const appRouter = createBrowserRouter([
         path: "/restaurants/:id",
         element: <RestaurantMenu />,
       },
+      {
+        path:"/cart",
+        element:<Cart/>
+      }
     ],
   },
 
@@ -64,5 +73,5 @@ const appRouter = createBrowserRouter([
   },
 ]);
 
-//root.render(<RouterProvider router={appRouter}></RouterProvider>);
- root.render(<Component1/>);
+root.render(<RouterProvider router={appRouter}></RouterProvider>);
+ //root.render(<Component1/>);

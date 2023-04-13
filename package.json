@@ -13,10 +13,16 @@
   "author": "Sirna Lokesh",
   "license": "ISC",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.3",
+    "bootstrap": "^5.2.3",
     "cypress": "^12.9.0",
     "parcel": "^2.8.3",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.7.3",
     "react-dom": "^18.2.0",
+    "react-icon": "^1.0.0",
+    "react-icons": "^4.8.0",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.10.0"
   },
   "devDependencies": {

@@ -65,7 +65,3 @@ export const badRating={
     backgroundColor:"red"
 }
 
-
-
-
-

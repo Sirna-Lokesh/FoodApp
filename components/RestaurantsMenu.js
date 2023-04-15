@@ -4,12 +4,14 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { REST_MENU_URL } from "../config";
 import { CLOUD_IMAGE_URL } from "../config";
-
 import ShimmerBody from "./ShimmerBody";
 import MenuItemCard from "./MenuItem";
+
+
 const RestaurantsMenu = (props) => {
   const restaurantId = useParams().id;
   const [restaurantMenu, setRestaurantMenu] = useState(null);
+  
 
   const avgRating = restaurantMenu?.data?.cards[0]?.card?.card?.info?.avgRating;
   const cuisines = restaurantMenu?.data?.cards[0]?.card?.card?.info?.cuisines;
@@ -24,7 +26,9 @@ const RestaurantsMenu = (props) => {
 
   //menu-items data
   const [AllMenuItems, setAllMenuItems] = useState(null);
+  const [filteredMenuItems,setFilteredMenuItems] = useState(null);
 
+  const [text,setText]=useState("");
   //style for rating
   const goodRating = {
     backgroundColor: "green",
@@ -32,12 +36,21 @@ const RestaurantsMenu = (props) => {
   const badRating = {
     backgroundColor: "red",
   };
+  async function filterMenuItems(setFilteredMenuItems,AllMenuItems,searchText){
+    
+    const afterFilteration = AllMenuItems.filter((menuItem)=>{
+      if(menuItem?.card?.info?.name?.toLowerCase()?.includes(searchText?.toLowerCase())){
+        return menuItem;
+      }
+    })
+    setFilteredMenuItems([...afterFilteration])
+  }
 
   async function getRestaurantMenu() {
     const data = await fetch(REST_MENU_URL + restaurantId);
     const json = await data.json();
     setRestaurantMenu(json);
-    console.log(json);
+    //console.log(json);
     //console.log(json?.data?.cards[0]?.card?.card?.info);
     let menuData =
       json?.data?.cards?.[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[1]
@@ -47,6 +60,7 @@ const RestaurantsMenu = (props) => {
       ?.card?.card?.itemCards;
     }
     setAllMenuItems(menuData);
+    setFilteredMenuItems(menuData);
     console.log(menuData);
   }
   useEffect(() => {
@@ -77,6 +91,7 @@ const RestaurantsMenu = (props) => {
                 >
                   {avgRating}
                 </button>
+                
               </h3>
               <h3>
                 Cuisines :
@@ -84,12 +99,16 @@ const RestaurantsMenu = (props) => {
               </h3>
               <h3>Cost : {parseInt(costForTwo) / 100} For 2 </h3>
               <h3>Minimum Delivery Time :{minDeliveryTime} Mins </h3>
+              <div className="flex  w-[500px]">
+                <input className="border border-black w-[400px] shadow-lg h-9 rounded-sm mt-4 mr-2" type="text" value={text} onChange={(e)=>setText(e.target.value)} />
+                <button className="bg-violet-600 text-white rounded-md w-16 h-9 mt-4" onClick={()=>filterMenuItems(setFilteredMenuItems, AllMenuItems ,text)}>Search</button>
+              </div>
             </div>
           </div>
           <div className="w-[1000px] mx-auto bg-black h-[2px] mb-4"></div>
-          <div id="menu" className="flex flex-wrap justify-center">
-            {AllMenuItems != null ? (
-              AllMenuItems?.map((menuItem, index) => {
+          <div id="menu" className="flex flex-wrap justify-center" data-testid="menu-items">
+            {filteredMenuItems != null ? (
+              filteredMenuItems?.map((menuItem,index) => {
                 return (
                   <MenuItemCard
                     key={index}
@@ -100,7 +119,7 @@ const RestaurantsMenu = (props) => {
             ) : (
               <h1>No Items </h1>
             )}
-            {/* <MenuItemCard title={AllMenuItems?.title} FoodItem={AllMenuItems?.itemCards[0]?.card?.info}></MenuItemCard> */}
+           
           </div>
         </>
       ) : (
@@ -111,3 +130,15 @@ const RestaurantsMenu = (props) => {
 };
 
 export default RestaurantsMenu;
+
+
+/**
+ * install react-testing library and jest
+ * configure jest (npx jest --init)
+ * install jest-environment-jsdom
+ * 
+ * create first test
+ * 
+ * 
+ * 
+ */

@@ -22,9 +22,10 @@ const Body = () => {
   return (
     <>
     {online==true ? <>
-        <div id="search-comp" className=" shadow-sm mt-2 mb-3 flex place-items-center h-10  ">
+        <div id="search-comp" className=" mt-2 mb-3 flex place-items-center h-10  ">
           <input
-          className="focus:bg-blue-100 border border-black mx-4 w-[400px] shadow-lg h-10 rounded-sm"
+          data-testid="input-box"
+          className="border border-black mx-4 w-[400px] shadow-lg h-10 rounded-sm"
             type="text"
             id="search-bar"
             placeholder="You can Filter here  ..."
@@ -36,14 +37,15 @@ const Body = () => {
           />
           <button
             onClick={() => filterRests(searchText, allRestaurants,setFilteredRestaurants)}
+            data-testid="search-rest-button"
             id="search-btn"
-            className="bg-emerald-400 border border-black shadow-sm mx-2 rounded-lg w-24 h-10 text-xl"
+            className="bg-violet-600 text-white border border-black shadow-sm mx-2 rounded-lg w-24 h-9"
           >
-            🔍Search{" "}
+            Search
           </button>
           <button
             id="sort-btn"
-            className="bg-emerald-300  border border-black shadow-sm mx-2 rounded-lg w-24 h-10 text-xl"
+            className="bg-violet-600 text-white border border-black shadow-sm mx-2 rounded-lg w-24 h-9"
             onClick={() => {
               customSort(filteredRestaurants,setAllrestaurants,setFilteredRestaurants);
             }}
@@ -54,7 +56,7 @@ const Body = () => {
         {filteredRestaurants.length == 0 ? (
           <ShimmerBody />
         ) : (
-          <div id="body" className="flex flex-wrap justify-center">
+          <div id="body" className="flex flex-wrap justify-center" data-testid="restaurant-list">
             {filteredRestaurants?.map((restaurant, index) => (
               <RestaurantCard
                 key={restaurant?.data?.uuid}
